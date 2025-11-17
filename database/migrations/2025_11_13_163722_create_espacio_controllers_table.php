@@ -9,10 +9,14 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
-        Schema::create('espacio_controllers', function (Blueprint $table) {
+        Schema::create('espacios', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre');
+            $table->string('tipo');
+            $table->integer('capacidad')->unsigned();
+            $table->string('ubicacion');
             $table->timestamps();
         });
     }
@@ -20,8 +24,9 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
-    public function down(): void
+    public function down()
     {
-        Schema::dropIfExists('espacio_controllers');
+        Schema::dropIfExists('espacios');
     }
 };
+
