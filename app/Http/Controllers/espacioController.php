@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Espacio;
+use App\Models\Reserva;
 
-class espacioController extends Controller
+class EspacioController extends Controller
 {
     /**
      * Display a listing of the resource.

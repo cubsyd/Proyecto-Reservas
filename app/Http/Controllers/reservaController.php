@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Reserva;
+use App\Models\Espacio;
 
-class reservaController extends Controller
+class ReservaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -33,8 +35,8 @@ class reservaController extends Controller
             'espacio_id' => 'required|exists:espacios,id',
             'solicitante' => 'required|string|max:255',
             'fecha' => 'required|date',
-            'horaInicio' => 'required|date_format:H:i',
-            'horaFin' => 'required|date_format:H:i',
+            'hora_inicio' => 'required|date_format:H:i',
+            'hora_fin' => 'required|date_format:H:i',
             'motivo' => 'nullable|string|max:255',
         ]);
 
@@ -69,8 +71,8 @@ class reservaController extends Controller
             'espacio_id' => 'required|exists:espacios,id',
             'solicitante' => 'required|string|max:255',
             'fecha' => 'required|date',
-            'horaInicio' => 'required|date_format:H:i',
-            'horaFin' => 'required|date_format:H:i',
+            'hora_inicio' => 'required|date_format:H:i',
+            'hora_fin' => 'required|date_format:H:i',
             'motivo' => 'nullable|string|max:255',
         ]);
 

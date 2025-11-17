@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class espacioController extends Model
+class Espacio extends Model
 {
     protected $fillable = ['nombre', 'tipo', 'capacidad', 'ubicacion'];
 

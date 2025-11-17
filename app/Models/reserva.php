@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class reservaController extends Model
+class Reserva extends Model
 {
-    protected $fillable = ['espacio_id', 'solicitante', 'fecha', 'horaInicio', 'horaFin', 'motivo'];
+    protected $fillable = ['espacio_id', 'solicitante', 'fecha', 'hora_inicio', 'hora_fin', 'motivo'];
 
     public function espacio() {
         return $this->belongsTo(Espacio::class);

@@ -9,25 +9,25 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
         Schema::create('reservas', function (Blueprint $table) {
     $table->id();
     $table->foreignId('espacio_id')->constrained()->onDelete('cascade');
     $table->string('solicitante');
     $table->date('fecha');
-    $table->time('horaInicio');
-    $table->time('horaFin');
+    $table->time('hora_inicio');
+    $table->time('hora_fin');
     $table->string('motivo')->nullable();
     $table->timestamps();
-    });
-}
+});
 
+    }
 
     /**
      * Reverse the migrations.
      */
-    public function down()
+    public function down(): void
     {
         Schema::dropIfExists('reservas');
     }
