@@ -11,7 +11,8 @@ class espacioController extends Controller
      */
     public function index()
     {
-        //
+        $espacios = Espacio::paginate(10);
+        return view('espacios.index', compact('espacios'));
     }
 
     /**
@@ -19,7 +20,7 @@ class espacioController extends Controller
      */
     public function create()
     {
-        //
+        return view('espacios.create');
     }
 
     /**
@@ -27,7 +28,17 @@ class espacioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+        'nombre' => 'required|string|max:255',
+        'tipo' => 'required|string|max:255',
+        'capacidad' => 'required|integer|min:1',
+        'ubicacion' => 'required|string|max:255',
+    ]);
+
+    Espacio::create($request->all());
+
+    return redirect()->route('espacios.index')->with('success', 'Espacio creado correctamente.');
+
     }
 
     /**
@@ -41,24 +52,36 @@ class espacioController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Espacio $espacio)
     {
-        //
+        return view('espacios.edit', compact('espacio'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Espacio $espacio)
     {
-        //
+        $request->validate([
+            'nombre' => 'required|string|max:255',
+            'tipo' => 'required|string|max:255',
+            'capacidad' => 'required|integer|min:1',
+            'ubicacion' => 'required|string|max:255',
+        ]);
+
+        $espacio->update($request->all());
+
+        return redirect()->route('espacios.index')->with('success', 'Espacio actualizado correctamente.');
+
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Espacio $espacio)
     {
-        //
+        $espacio->delete();
+
+        return redirect()->route('espacios.index')->with('success', 'Espacio eliminado correctamente.');
     }
 }
