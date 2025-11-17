@@ -33,14 +33,14 @@ class reservaController extends Controller
             'espacio_id' => 'required|exists:espacios,id',
             'solicitante' => 'required|string|max:255',
             'fecha' => 'required|date',
-            'hora_inicio' => 'required|date_format:H:i',
-            'hora_fin' => 'required|date_format:H:i',
+            'horaInicio' => 'required|date_format:H:i',
+            'horaFin' => 'required|date_format:H:i',
             'motivo' => 'nullable|string|max:255',
         ]);
 
         Reserva::create($request->all());
 
-        return redirect()->route('reservas.index')->with('success', 'Reserva creada correctamente.');
+        return redirect()->route('reservas.index')->with('ok', 'Reserva creada correctamente.');
     }
 
     /**
@@ -69,14 +69,14 @@ class reservaController extends Controller
             'espacio_id' => 'required|exists:espacios,id',
             'solicitante' => 'required|string|max:255',
             'fecha' => 'required|date',
-            'hora_inicio' => 'required|date_format:H:i',
-            'hora_fin' => 'required|date_format:H:i',
+            'horaInicio' => 'required|date_format:H:i',
+            'horaFin' => 'required|date_format:H:i',
             'motivo' => 'nullable|string|max:255',
         ]);
 
         $reserva->update($request->all());
 
-        return redirect()->route('reservas.index')->with('success', 'Reserva actualizada correctamente.');
+        return redirect()->route('reservas.index')->with('ok', 'Reserva actualizada correctamente.');
     }
 
     /**
@@ -86,6 +86,6 @@ class reservaController extends Controller
     {
         $reserva->delete();
 
-        return redirect()->route('reservas.index')->with('success', 'Reserva eliminada correctamente.');
+        return redirect()->route('reservas.index')->with('ok', 'Reserva eliminada correctamente.');
     }
 }

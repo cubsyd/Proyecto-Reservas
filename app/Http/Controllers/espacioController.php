@@ -37,7 +37,7 @@ class espacioController extends Controller
 
     Espacio::create($request->all());
 
-    return redirect()->route('espacios.index')->with('success', 'Espacio creado correctamente.');
+    return redirect()->route('espacios.index')->with('ok', 'Espacio creado correctamente.');
 
     }
 
@@ -71,7 +71,7 @@ class espacioController extends Controller
 
         $espacio->update($request->all());
 
-        return redirect()->route('espacios.index')->with('success', 'Espacio actualizado correctamente.');
+        return redirect()->route('espacios.index')->with('ok', 'Espacio actualizado correctamente.');
 
     }
 
@@ -82,6 +82,6 @@ class espacioController extends Controller
     {
         $espacio->delete();
 
-        return redirect()->route('espacios.index')->with('success', 'Espacio eliminado correctamente.');
+        return redirect()->route('espacios.index')->with('ok', 'Espacio eliminado correctamente.');
     }
 }
